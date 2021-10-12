@@ -227,9 +227,10 @@
         @change="log"
       >
       
-          <tr class="w-full " v-for="(element,index) in list2" :key="index">
-         <td class="p-5 text-sm">
+          <tr class="w-full "  @click="controlshowcondition(index)" v-for="(element,index) in list2" :key="index">
+         <td class="p-5 text-sm ">
                 
+                      <button v-if="element.showcondition"  class="float-right -m-4">X</button>
                   <div class="flex">
                     <div class="flex-shrink-0 w-full h-full">
                       <img
@@ -283,7 +284,8 @@ components: { VueResizable, draggable },
     const tH = 600;
     return {
       color: '#673AB7',
-            showMenu: false,
+      showMenu: false,
+      showcondition: true,
       handlers: ["r", "rb", "b", "lb", "l", "lt", "t", "rt"],
       left: `calc( 50% - ${tW / 2}px)`,
       top: `calc(50% - ${tH / 2}px)`,
@@ -353,14 +355,18 @@ components: { VueResizable, draggable },
         
       ],
       list2: [
-        { name: "Ttr 2", id: 1, Pic : Twitter },
-        { name: "Fb 2", id: 2, Pic : Facebook },
-        { name: "SL 2", id: 3, Pic : SL }
+        { name: "Ttr 2", id: 1, showcondition : false, Pic : Twitter },
+        { name: "Fb 2", id: 2, showcondition : false, Pic : Facebook },
+        { name: "SL 2", id: 3, showcondition : false, Pic : SL }
       ]
     }
   },
   methods: {
-        toggleShow(id) {
+      controlshowcondition(id){
+          console.log(id)
+        this.list2[id].showcondition = !this.list2[id].showcondition;
+      },
+      toggleShow(id) {
            for(var i=0; i<5; i++){
              this.list1[i].sp = false
            }

@@ -1,31 +1,29 @@
 <template>
-<div class="flex">
-  
-  <div class="h-screen top-0 sticky w-48">
-    <!-- Note: add overflow-y-scroll if sidebar content is longer than page -->
-    <div class="flex items-center h-12 bg-red-200">
-      <div class='flex-1 text-red-700 font-mono text-center'>Fixed Logo</div>
-    </div>
-  
-  </div>
-  
-  <div class="flex-grow bg-gray-300">
-    <div class="flex h-12 bg-red-200 sticky top-0">
-      <div class='flex-1 flex items-center text-red-700 font-mono p-2'>Menu</div>
-    </div>
 
-    <div class="p-4 bg-green-100 h-64">
-      deneme
-    </div>
-    <div class="p-4 bg-green-200 h-64">
-      deneme
-    </div>
-    <div class="p-4 bg-green-100 h-64">
-      deneme
-    </div>
-    <div class="p-4 bg-green-200 h-64">
-      deneme
-    </div>
-  </div>
-</div>
+      <div class=' flex h-screen justify-center items-center'>
+        <div class='group text-xl'>
+          <strong v-if="condition" @click="condition1()" class='group-hover:text-red-500 group-hover:hidden'>Hover on me </strong>
+          <strong class='group-hover:text-green-500'>the texts will be </strong>
+          <strong class='group-hover:text-blue-500'>of different colors</strong>
+        </div>
+      </div>
 </template>
+
+<script>
+export default {
+  data(){
+    return{
+      condition : true
+    }
+  },
+  methods:{
+    condition1(){
+      this.condition = !this.condition
+    }
+  }
+}
+</script>
+
+<style>
+
+</style>
