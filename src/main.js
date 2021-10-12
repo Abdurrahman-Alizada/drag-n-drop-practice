@@ -1,7 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
+import VueDragResize from 'vue-drag-resize'
+import './assets/tailwind.css'
 
+Vue.component('vue-drag-resize', VueDragResize)
 Vue.config.productionTip = false
 
 new Vue({
