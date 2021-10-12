@@ -1,35 +1,27 @@
 <template>
 
 <div class="flex">
- 
+ <!-- left side -->
   <div class="h-screen overflow-y-scroll top-0 sticky w-1/4">
     <!-- Note: add overflow-y-scroll if sidebar content is longer than page -->
     <div class="flex items-center h-12 bg-red-200">
-      <div class='flex-1 text-red-700 font-mono text-center'>Fixed Logo</div>
+      <div class='flex-1 text-red-700 font-mono text-center'>Your Brand Name</div>
     </div>
 
-
-     <div class="p-8 ">
-
-
-    <ul class="">
-
-      <li v-for="(element,index) in list1" :key="index" class="font-semibold list12  text-sm list-none block ">
+    <ul class="p-5 ">
+      <li v-for="(element,index) in list1" :key="index" class="font-semibold list12 text-sm list-none bg-black ">
     <div  class="flex items-center justify-between mb-2 cursor-pointer" @click="toggleShow(index)">
-          <div class="px-5 py-5  bg-white text-sm">
-            <div class="flex">
-              <div class="flex-shrink-0 w-10 h-10">
+          <div class="flex items-center p-3">
+              <div class="flex items-center justify-around w-10 h-10">
                 <img
                   class="w-full h-full rounded-full"
                   :src="element.Pic"
                   alt=""
                 />
-                <span>{{element.name}}</span>
-              </div>
-            
-            </div>
+              </div>  
+                            <span class="mx-4 text-lg">{{element.name}}</span>
           </div>
-                
+    
       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" :class="{'rotate-90' : showMenu && element.sp}" class="dropdown-menu" viewBox="0 0 24 24">
         <path fill="none" d="M0 0h24v24H0V0z"/><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
       </svg>
@@ -45,7 +37,7 @@
           
         <li class="" v-for="(selement ,index1) in element.sublist" :key="index1">
 
-            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+            <td class="px-5 py-5 text-sm">
                       <div class="flex">
                         <div class="flex-shrink-0 w-10 h-10">
                           <img
@@ -65,7 +57,6 @@
       </ul>
      </li>
     </ul>
- </div>
 
 <ul class="space-y-3 px-4 divide-y-2">
   <li>
@@ -94,7 +85,7 @@
 
       <div class="flex">
           <div class=" mr-5 text-lg font-normal">Height</div>
-          <input class="text-yellow-500 table-input" type="number" v-model.number="width">
+          <input class="text-yellow-500 table-input" type="number" v-model.number="height">
       </div>
             
       </div>
@@ -194,15 +185,12 @@
 
 </ul>
 
-       
-
-
   </div>
-  
-  <div class="flex-grow bg-gray-300">
+  <!-- right side -->
+  <div class="flex-grow overflow-y-scroll bg-gray-300">
     
       <vue-resizable
-        class="resizable"
+        class="overflow-hidden"
         v-bind:style="{ backgroundColor: color}"
        
         :dragSelector="dragSelector"
@@ -239,17 +227,17 @@
         @change="log"
       >
       
-          <tr class="w-full bg-white" v-for="(element,index) in list2" :key="index">
-         <td class="px-5 py-5 border-b border-gray-200  text-sm">
+          <tr class="w-full " v-for="(element,index) in list2" :key="index">
+         <td class="p-5 text-sm">
                 
                   <div class="flex">
-                    <div class="flex-shrink-0 w-10 h-10">
+                    <div class="flex-shrink-0 w-full h-full">
                       <img
-                        class="w-full h-full rounded-full"
+                        class="w-10 h-10 "
                         :src="element.Pic"
                         alt=""
                       />
-                      <span class="text-black">{{element.name}}</span>
+                      <!-- <span class="text-black">{{element.name}}</span> -->
                     </div>
                 </div>
                 </td>
@@ -263,6 +251,7 @@
     
 
   </div>
+
 </div>
 
 
@@ -278,7 +267,7 @@ import draggable from "vuedraggable";
 import Twitter from '../assets/twitter.png'
 import Facebook from '../assets/facebook.png'
 import LinkedIn from '../assets/linkedin.png'
-import SL from '../assets/s.png'
+import SL from '../assets/logo.png'
 import GitHub from '../assets/github.png'
 
 
@@ -306,7 +295,7 @@ components: { VueResizable, draggable },
       minH: 100,
       fit: true,
       event: "",
-      dragSelector: ".drag-container1-1, .drag-container1-2",
+      dragSelector: ".drag-container1-1",
     
           list1: [
         { name: "Ttr", id: 1, sp : false, Pic : Twitter, 
@@ -349,15 +338,15 @@ components: { VueResizable, draggable },
         },
         { name: "Sl ", id: 5, sp : false, Pic : SL, 
                 sublist : [
-            {name: "SL 1", id: 1, pic : SL,},
-            {name: "SL 2", id: 2, pic : SL,},
-            {name: "SL 3", id: 3, pic : SL,},
-            {name: "SL 2", id: 4, pic : SL,},
-            {name: "SL 3", id: 5, pic : SL,},
-            {name: "SL 2", id: 6, pic : SL,},
-            {name: "SL 3", id: 7, pic : SL,},
-            {name: "SL 4", id: 8, pic : SL,},
-            {name: "SL 5", id: 9, pic : SL,}
+            {name: "SL 1", id: 1, Pic : SL,},
+            {name: "SL 2", id: 2, Pic : SL,},
+            {name: "SL 3", id: 3, Pic : SL,},
+            {name: "SL 2", id: 4, Pic : SL,},
+            {name: "SL 3", id: 5, Pic : SL,},
+            {name: "SL 2", id: 6, Pic : SL,},
+            {name: "SL 3", id: 7, Pic : SL,},
+            {name: "SL 4", id: 8, Pic : SL,},
+            {name: "SL 5", id: 9, Pic : SL,}
             ]
         
         },
