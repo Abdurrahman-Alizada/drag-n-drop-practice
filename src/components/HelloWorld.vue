@@ -1,11 +1,10 @@
 <template>
-
 <div class="flex">
  <!-- left side -->
   <div class="h-screen overflow-y-scroll top-0 sticky w-1/4">
     <!-- Note: add overflow-y-scroll if sidebar content is longer than page -->
-    <div class="flex items-center h-12 bg-red-200">
-      <div class='flex-1 text-red-700 font-mono text-center'>Your Brand Name</div>
+    <div class="flex items-center h-12 bg-purple-400">
+      <div class='flex-1 text-white font-mono text-center'>Your Brand Name</div>
     </div>
 
     <ul class="p-5 ">
@@ -75,17 +74,17 @@
   </li>
 
 <li>
-    <div class="w-100 flex flex-col md:flex-row items-center justify-between p-4">
+    <div class="w-100 flex flex-col md:flex-row items-center justify-between p-2">
       <div class="flex items-center justify-around">
         <!-- <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg> -->
       <div class="flex">
           <div class=" mr-5 text-lg font-normal">Width</div>
-          <input class="text-yellow-500 table-input" type="number" v-model.number="width">
+          <input class="text-yellow-500 w-1/2" type="number" v-model.number="width">
       </div>
 
       <div class="flex">
           <div class=" mr-5 text-lg font-normal">Height</div>
-          <input class="text-yellow-500 table-input" type="number" v-model.number="height">
+          <input class="text-yellow-500 w-1/2" type="number" v-model.number="height">
       </div>
             
       </div>
@@ -93,17 +92,16 @@
   </li>
 
 <li>
-    <div class="w-100 flex flex-col md:flex-row items-center justify-between p-4">
+    <div class="w-100 flex flex-col md:flex-row items-center justify-between p-2">
       <div class="flex items-center justify-around">
-        <!-- <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg> -->
       <div class="flex">
           <div class=" mr-5 text-lg font-normal">Min Width</div>
-          <input class="table-input" type="number" v-model.number="minW">
+          <input class="w-1/3" type="number" v-model.number="minW">
        </div>
 
       <div class="flex">
           <div class=" mr-5 text-lg font-normal">Min Height</div>
-          <input class="table-input" type="number" v-model.number="minH">
+          <input class="w-1/2" type="number" v-model.number="minH">
 
       </div>
             
@@ -113,7 +111,7 @@
 
 
 <li>
-    <div class="w-100 flex flex-col md:flex-row items-center justify-between p-4">
+    <div class="flex flex-col md:flex-row items-center justify-between p-2">
       <div class="flex items-center justify-around">
         <!-- <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg> -->
       <div class="flex">
@@ -131,9 +129,8 @@
   </li>
 
 <li>
-    <div class="w-100 flex flex-col md:flex-row items-center justify-between p-4">
+    <div class="w-100 flex flex-col md:flex-row items-center justify-between p-2">
       <div class="flex items-center justify-around">
-        <!-- <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg> -->
       <div class="flex">
           <div class=" mr-8 text-lg font-normal">Color</div>
           <input type="color" v-model="color"/>
@@ -188,7 +185,89 @@
   </div>
   <!-- right side -->
   <div class="flex-grow overflow-y-scroll bg-gray-300">
-    
+       
+        <div class="h-12 p-1 bg-purple-400">
+        <button class="bg-blue-500 float-right text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150" type="button" @click="toggleModal()">
+          Check Details
+        </button>
+        </div>
+     <!-- Modal -->
+    <div v-if="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+      <div class="relative w-auto my-6 mx-auto max-w-6xl">
+        <!--content-->
+        <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+          <!--header-->
+          <!--body-->
+          <div class="relative p-6 flex">
+            
+            <div class="w-1/2 px-4 ">
+              <div class="" :style="{'background-color': color, 'width':width+'px', 'height':height+'px'}">
+               <div class="flex flex-col items-center justify-center">
+          <draggable  class="w-full" :list="list2" group="people" @change="log">
+              <tr  class="w-full flex flex-col items-center justify-center"  @click="controlshowcondition(index)" v-for="(element,index) in list2" :key="index">
+                <td class="p-5 text-sm">     
+                  <button v-if="element.showcondition"  class="float-right -m-4">X</button>
+                    <div class=" w-full h-full">
+
+                      <img class="w-16 h-16 "  :src="element.Pic"  alt=""/>
+                      
+                    </div>
+                </td>                
+              </tr>
+          </draggable> 
+               </div> 
+                 </div>
+            </div>
+
+            <div class="w-1/2">
+            <h2 class="text-xl font-bold">KCG/KXG/KZG351</h2>
+            <h4 class="text-lg pt-4">Features</h4>
+            <p class="text-md">
+               Be made of bending embossed stainless steel, with anti-fingerprint function bright chrome plated sealing heads
+            </p>
+            
+            <h4 class="text-lg pt-4">Measurement</h4>
+<pre class="text-md">
+COP: 1000 * 190 * 20 (2-8)
+LOP: 310 * 100 * 20
+Hall Call : 200 * 100 * 20
+</pre>
+
+            <h4 class="text-lg pt-4">Display Module</h4>
+<pre class="text-md">
+COP : KVL272
+LOP : KVL271
+</pre>
+      
+            <h4 class="text-lg pt-4">Button</h4>
+            <p class="text-md">
+               BA541
+            </p>
+      
+            <h4 class="text-lg pt-4">Surface Treatment</h4>
+            <p class="text-md">
+                Sealing Head: Chrome Flash/Titarium plating
+            </p>
+      
+            </div>
+          </div>
+          <!--footer-->
+          <div class="flex items-center justify-end   rounded-b">
+            <button class="text-red-500 bg-transparent hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" v-on:click="toggleModal()">
+              Close
+            </button>
+            <button class="text-white border border-solid border-green-500 bg-green-500 hover:text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" v-on:click="toggleModal()">
+              Save
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-if="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+ 
+     <!-- end Modal -->
+
       <vue-resizable
         class="overflow-hidden"
         v-bind:style="{ backgroundColor: color}"
@@ -217,48 +296,25 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
           </svg>
           </div>
-
-                 <!-- sECOND -->
-         <div class="flex flex-col items-center justify-center ">
-      <draggable
-        class=""
-        :list="list2"
-        group="people"
-        @change="log"
-      >
-      
-          <tr class="w-full "  @click="controlshowcondition(index)" v-for="(element,index) in list2" :key="index">
-         <td class="p-5 text-sm ">
-                
-                      <button v-if="element.showcondition"  class="float-right -m-4">X</button>
-                  <div class="flex">
-                    <div class="flex-shrink-0 w-full h-full">
-                      <img
-                        class="w-10 h-10 "
-                        :src="element.Pic"
-                        alt=""
-                      />
-                      <!-- <span class="text-black">{{element.name}}</span> -->
-                    </div>
-                </div>
-                </td>
              
-          </tr>
-      </draggable> 
-         </div>
+        <div class="flex flex-col items-center justify-center">
+          <draggable  class="w-full" :list="list2" group="people" @change="log">
+              <tr  class="w-full flex flex-col items-center justify-center"  @click="controlshowcondition(index)" v-for="(element,index) in list2" :key="index">
+                <td class="p-5 text-sm">     
+                  <button v-if="element.showcondition"  class="float-right -m-4">X</button>
+                    <div class=" w-full h-full">
 
-
+                      <img class="w-16 h-16 "  :src="element.Pic"  alt=""/>
+                      
+                    </div>
+                </td>                
+              </tr>
+          </draggable> 
+        </div>
       </vue-resizable>
-    
-
   </div>
 
 </div>
-
-
-
-
-
 </template>
 
 <script>
@@ -278,17 +334,19 @@ export default {
   display: "Custom Clone",
   order: 3,
 
-components: { VueResizable, draggable },
+components: { VueResizable, draggable,},
   data() {
-    const tW = 300;
-    const tH = 600;
+    const tW = 200;
+    const tH = 400;
     return {
       color: '#673AB7',
+      showModal: false,
       showMenu: false,
       showcondition: true,
+
       handlers: ["r", "rb", "b", "lb", "l", "lt", "t", "rt"],
       left: `calc( 50% - ${tW / 2}px)`,
-      top: `calc(50% - ${tH / 2}px)`,
+      top: `calc(50% - ${tH / 1.7}px)`,
       height: tH,
       width: tW,
       maxW: 1200,
@@ -298,7 +356,6 @@ components: { VueResizable, draggable },
       fit: true,
       event: "",
       dragSelector: ".drag-container1-1",
-    
           list1: [
         { name: "Ttr", id: 1, sp : false, Pic : Twitter, 
           sublist : [
@@ -356,12 +413,15 @@ components: { VueResizable, draggable },
       ],
       list2: [
         { name: "Ttr 2", id: 1, showcondition : false, Pic : Twitter },
-        { name: "Fb 2", id: 2, showcondition : false, Pic : Facebook },
-        { name: "SL 2", id: 3, showcondition : false, Pic : SL }
+        // { name: "Fb 2", id: 2, showcondition : false, Pic : Facebook },
+        // { name: "SL 2", id: 3, showcondition : false, Pic : SL }
       ]
     }
   },
   methods: {
+     toggleModal: function(){
+      this.showModal = !this.showModal;
+    },
       controlshowcondition(id){
           console.log(id)
         this.list2[id].showcondition = !this.list2[id].showcondition;
