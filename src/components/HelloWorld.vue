@@ -58,17 +58,14 @@
     </ul>
 
 <ul class="space-y-3 px-4 divide-y-2">
-  <li>
-    <div class="w-80 flex flex-col md:flex-row items-center justify-between p-2">
+
+<li>
+    <div class="w-100 flex flex-col md:flex-row items-center justify-between p-2">
+      <div class="flex items-center justify-around">
       <div class="flex">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-      <div class=" mr-5 text-lg font-normal">Handler</div>
-      </div>
-      <div class="flex  text-yellow-500">
-        <span class="ml-2" v-for="handler in ['r', 'rb', 'b', 'lb', 'l', 'lt', 't', 'rt']" :key="handler">
-          {{handler}}:
-          <input type="checkbox" v-model="handlers" :value="handler">
-        </span>
+          <div class=" mr-8  text-lg font-normal">Color</div>
+          <input type="color" v-model="color"/>
+       </div>            
       </div>
     </div>
   </li>
@@ -96,19 +93,18 @@
       <div class="flex items-center justify-around">
       <div class="flex">
           <div class=" mr-5 text-lg font-normal">Min Width</div>
-          <input class="w-1/3" type="number" v-model.number="minW">
+          <input class="w-1/3 text-yellow-500" type="number" v-model.number="minW">
        </div>
 
       <div class="flex">
           <div class=" mr-5 text-lg font-normal">Min Height</div>
-          <input class="w-1/2" type="number" v-model.number="minH">
+          <input class="w-1/2 text-yellow-500" type="number" v-model.number="minH">
 
       </div>
             
       </div>
     </div>
   </li>
-
 
 <li>
     <div class="flex flex-col md:flex-row items-center justify-between p-2">
@@ -116,65 +112,28 @@
         <!-- <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg> -->
       <div class="flex">
           <div class=" mr-5 text-lg font-normal">Max Width</div>
-          <input class="table-input" type="number" v-model.number="maxW">
+          <input class="table-input text-yellow-500" type="number" v-model.number="maxW">
        </div>
 
       <div class="flex">
           <div class=" mr-5 text-lg font-normal">Max Height</div>
-          <input class="table-input" type="number" v-model.number="maxH">
+          <input class="table-input text-yellow-500" type="number" v-model.number="maxH">
       </div>
-            
-      </div>
-    </div>
-  </li>
-
-<li>
-    <div class="w-100 flex flex-col md:flex-row items-center justify-between p-2">
-      <div class="flex items-center justify-around">
-      <div class="flex">
-          <div class=" mr-8 text-lg font-normal">Color</div>
-          <input type="color" v-model="color"/>
-       </div>
-
-      <div class="flex">
-          <div class=" mx-5 text-lg font-normal">Fit Parent</div>
-          <input type="checkbox" v-model.number="fit">
-
-      </div>
-            
       </div>
     </div>
   </li>
 
-<li>
-    <div class="w-100 flex flex-col md:flex-row items-center justify-between p-4">
-      <div class="flex items-center justify-around">
-        <!-- <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg> -->
+  <li>
+    <div class="w-80 flex flex-col md:flex-row items-center justify-between p-2">
       <div class="flex">
-          <div class=" mr-8 text-lg font-normal">Left</div>
-          <input class="table-input" type="number" v-model.number="left">
-       </div>
-
-      <div class="flex">
-          <div class=" mx-5 text-lg font-normal">Top</div>
-          <input class="table-input" type="number" v-model.number="top">
-
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+      <div class=" mr-5 text-lg font-normal">Handler</div>
       </div>
-            
-      </div>
-    </div>
-  </li>
-
-<li>
-    <div class="w-100 flex flex-col md:flex-row items-center justify-between p-4">
-      <div class="flex items-center justify-around">
-        <!-- <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg> -->
-      <div class="flex">
-          <div class=" mr-8 text-lg font-normal">lastEvent: {{event}}</div>
-
-       </div>
-
-            
+      <div class="flex  text-yellow-500">
+        <span class="ml-2" v-for="handler in ['r', 'rb', 'b', 'lb', 'l', 'lt', 't', 'rt']" :key="handler">
+          {{handler}}:
+          <input type="checkbox" v-model="handlers" :value="handler">
+        </span>
       </div>
     </div>
   </li>
@@ -184,13 +143,12 @@
 
   </div>
   <!-- right side -->
-  <div class="flex-grow overflow-y-scroll bg-gray-300">
-       
-        <div class="h-12 p-1 bg-purple-400">
-        <button class="bg-blue-500 float-right text-white active:bg-blue-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150" type="button" @click="toggleModal()">
-          Check Details
-        </button>
-        </div>
+  <div class="flex-grow overflow-y-scroll bg-gray-300">   
+          <button @click="toggleModal()" class="flex items-center float-right m-3 px-2 py-2 font-medium tracking-wide text-white capitalize transition-colors duration-200 transform bg-purple-600 rounded-md hover:bg-purple-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-80">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+            </svg>
+          </button>
      <!-- Modal -->
     <div v-if="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
       <div class="relative w-auto my-6 mx-auto max-w-6xl">
@@ -209,7 +167,7 @@
                   <button v-if="element.showcondition"  class="float-right -m-4">X</button>
                     <div class=" w-full h-full">
 
-                      <img class="w-16 h-16 "  :src="element.Pic"  alt=""/>
+                      <img class="w-12 h-12 "  :src="element.Pic"  alt=""/>
                       
                     </div>
                 </td>                
@@ -256,8 +214,8 @@ LOP : KVL271
             <button class="text-red-500 bg-transparent hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" v-on:click="toggleModal()">
               Close
             </button>
-            <button class="text-white border border-solid border-green-500 bg-green-500 hover:text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" v-on:click="toggleModal()">
-              Save
+            <button class="text-white border border-solid border-green-500 bg-green-500 hover:bg-green-800 active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" v-on:click="toggleModal()">
+              Send Us
             </button>
 
           </div>
@@ -268,49 +226,31 @@ LOP : KVL271
  
      <!-- end Modal -->
 
-      <vue-resizable
-        class="overflow-hidden"
-        v-bind:style="{ backgroundColor: color}"
-       
-        :dragSelector="dragSelector"
-        :active="handlers"
-        :fit-parent="fit"
-        :max-width="maxW | checkEmpty"
-        :max-height="maxH | checkEmpty"
-        :min-width="minW | checkEmpty"
-        :min-height="minH | checkEmpty"
-        :width="width"
-        :height="height"
-        :left="left"
-        :top="top"
-        @mount="eHandler"
-        @resize:move="eHandler"
-        @resize:start="eHandler"
-        @resize:end="eHandler"
-        @drag:move="eHandler"
-        @drag:start="eHandler"
-        @drag:end="eHandler"
-      >
+      <vue-resizable class="overflow-hidden" v-bind:style="{ backgroundColor: color}" :dragSelector="dragSelector" :active="handlers"
+        :fit-parent="fit" :max-width="maxW | checkEmpty" :max-height="maxH | checkEmpty" :min-width="minW | checkEmpty" :min-height="minH | checkEmpty"
+        :width="width" :height="height" :left="left" :top="top" @mount="eHandler" @resize:move="eHandler"
+        @resize:start="eHandler" @resize:end="eHandler" @drag:move="eHandler" @drag:start="eHandler" @drag:end="eHandler">
+
           <div class="drag-container1-1">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
           </svg>
           </div>
              
-        <div class="flex flex-col items-center justify-center">
-          <draggable  class="w-full" :list="list2" group="people" @change="log">
+        <!-- <div class="flex h-full flex-col items-center justify-center"> -->
+          <draggable  class="w-full h-full" :list="list2" group="people" @change="log">
               <tr  class="w-full flex flex-col items-center justify-center"  @click="controlshowcondition(index)" v-for="(element,index) in list2" :key="index">
                 <td class="p-5 text-sm">     
                   <button v-if="element.showcondition"  class="float-right -m-4">X</button>
-                    <div class=" w-full h-full">
+                    <div class=" w-full ">
 
-                      <img class="w-16 h-16 "  :src="element.Pic"  alt=""/>
+                      <img class="w-12 h-12 "  :src="element.Pic"  alt=""/>
                       
                     </div>
                 </td>                
               </tr>
           </draggable> 
-        </div>
+        <!-- </div> -->
       </vue-resizable>
   </div>
 
@@ -336,8 +276,8 @@ export default {
 
 components: { VueResizable, draggable,},
   data() {
-    const tW = 200;
-    const tH = 400;
+    const tW = 250;
+    const tH = 500;
     return {
       color: '#673AB7',
       showModal: false,
@@ -412,7 +352,7 @@ components: { VueResizable, draggable,},
         
       ],
       list2: [
-        { name: "Ttr 2", id: 1, showcondition : false, Pic : Twitter },
+        // { name: "Ttr 2", id: 1, showcondition : false, Pic : Twitter },
         // { name: "Fb 2", id: 2, showcondition : false, Pic : Facebook },
         // { name: "SL 2", id: 3, showcondition : false, Pic : SL }
       ]
@@ -566,5 +506,28 @@ svg.rotate-90 {
 }
 .list12{
   background-color: #fff !important;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 100vh;
+  background: #eeedf7;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #9c8dcf;
+  border-radius: 100vh;
+  border: 3px solid #edf2f7;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
 }
 </style>
