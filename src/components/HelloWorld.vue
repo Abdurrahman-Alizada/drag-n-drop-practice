@@ -179,9 +179,10 @@
 
             <div class="w-1/2">
             <h2 class="text-xl font-bold">KCG/KXG/KZG351</h2>
-            <h4 class="text-lg pt-4">Features</h4>
-            <p class="text-md">
-               Be made of bending embossed stainless steel, with anti-fingerprint function bright chrome plated sealing heads
+            <p class="text-xl text-red-500">Note: this data will be dynamic after you provide name and other information</p>
+            <h4 class="text-lg pt-4">Features </h4>
+            <p class="text-md"> 
+               Be made of bending embossed stainless steel, with anti-fingerprint function bright chrome plated sealing heads ()
             </p>
             
             <h4 class="text-lg pt-4">Measurement</h4>
@@ -279,7 +280,7 @@ components: { VueResizable, draggable,},
     const tW = 250;
     const tH = 500;
     return {
-      color: '#673AB7',
+      color: '#7C7981',
       showModal: false,
       showMenu: false,
       showcondition: true,
