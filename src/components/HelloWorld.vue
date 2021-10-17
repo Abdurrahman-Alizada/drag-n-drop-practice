@@ -149,109 +149,112 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16" />
             </svg>
           </button>
-     <!-- Modal -->
-    <div v-if="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
-      <div class="relative w-auto my-6 mx-auto max-w-6xl">
-        <!--content-->
-        <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-          <!--header-->
-          <!--body-->
-          <div class="relative p-6 flex">
-            
-            <div class="w-1/2 px-4 ">
-              <div class="" :style="{'background-color': color, 'width':width+'px', 'height':height+'px'}">
-               <div class="flex flex-col items-center justify-center">
-          <draggable  class="w-full" :list="list2" group="people" @change="log">
-              <tr  class="w-full flex flex-col items-center justify-center"  @click="controlshowcondition(index)" v-for="(element,index) in list2" :key="index">
-                <td class="p-5 text-sm">     
-                  <button v-if="element.showcondition"  class="float-right -m-4">X</button>
-                    <div class=" w-full h-full">
+            <!-- Modal -->
+            <div v-if="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+              <div class="relative w-auto my-6 mx-auto max-w-6xl">
+                <!--content-->
+                <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                  <!--header-->
+                  <!--body-->
+                  <div class="relative p-6 flex">
+                    
+                    <div class="w-1/2 px-4 ">
+                      <div class="" :style="{'background-color': color, 'width':width+'px', 'height':height+'px'}">
+                      <div class="flex flex-col items-center justify-center">
+                  <draggable  class="w-full" :list="list2" group="people" @change="log">
+                      <tr  class="w-full flex flex-col items-center justify-center"  @click="controlshowcondition(index)" v-for="(element,index) in list2" :key="index">
+                        <td class="p-5 text-sm">     
+                          <button v-if="element.showcondition"  class="float-right -m-4">X</button>
+                            <div class=" w-full h-full">
 
-                      <img class="w-12 h-12 "  :src="element.Pic"  alt=""/>
-                      
+                              <img class="w-12 h-12 "  :src="element.Pic"  alt=""/>
+                              
+                            </div>
+                        </td>                
+                      </tr>
+                  </draggable> 
+                      </div> 
+                        </div>
                     </div>
-                </td>                
-              </tr>
-          </draggable> 
-               </div> 
-                 </div>
+
+                    <div class="w-1/2">
+                    <h2 class="text-xl font-bold">KCG/KXG/KZG351</h2>
+                    <p class="text-xl text-red-500">Note: this data will be dynamic after you provide name and other information</p>
+                    <h4 class="text-lg pt-4">Features </h4>
+                    <p class="text-md"> 
+                      Be made of bending embossed stainless steel, with anti-fingerprint function bright chrome plated sealing heads ()
+                    </p>
+                    
+                    <h4 class="text-lg pt-4">Measurement</h4>
+        <pre class="text-md">
+        COP: 1000 * 190 * 20 (2-8)
+        LOP: 310 * 100 * 20
+        Hall Call : 200 * 100 * 20
+        </pre>
+
+                    <h4 class="text-lg pt-4">Display Module</h4>
+        <pre class="text-md">
+        COP : KVL272
+        LOP : KVL271
+        </pre>
+              
+                    <h4 class="text-lg pt-4">Button</h4>
+                    <p class="text-md">
+                      BA541
+                    </p>
+              
+                    <h4 class="text-lg pt-4">Surface Treatment</h4>
+                    <p class="text-md">
+                        Sealing Head: Chrome Flash/Titarium plating
+                    </p>
+              
+                    </div>
+                  </div>
+                  <!--footer-->
+                  <div class="flex items-center justify-end   rounded-b">
+                    <button class="text-red-500 bg-transparent hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" v-on:click="toggleModal()">
+                      Close
+                    </button>
+                    <button class="text-white border border-solid border-green-500 bg-green-500 hover:bg-green-800 active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" v-on:click="toggleModal()">
+                      Send Us
+                    </button>
+
+                  </div>
+                </div>
+              </div>
             </div>
-
-            <div class="w-1/2">
-            <h2 class="text-xl font-bold">KCG/KXG/KZG351</h2>
-            <p class="text-xl text-red-500">Note: this data will be dynamic after you provide name and other information</p>
-            <h4 class="text-lg pt-4">Features </h4>
-            <p class="text-md"> 
-               Be made of bending embossed stainless steel, with anti-fingerprint function bright chrome plated sealing heads ()
-            </p>
-            
-            <h4 class="text-lg pt-4">Measurement</h4>
-<pre class="text-md">
-COP: 1000 * 190 * 20 (2-8)
-LOP: 310 * 100 * 20
-Hall Call : 200 * 100 * 20
-</pre>
-
-            <h4 class="text-lg pt-4">Display Module</h4>
-<pre class="text-md">
-COP : KVL272
-LOP : KVL271
-</pre>
-      
-            <h4 class="text-lg pt-4">Button</h4>
-            <p class="text-md">
-               BA541
-            </p>
-      
-            <h4 class="text-lg pt-4">Surface Treatment</h4>
-            <p class="text-md">
-                Sealing Head: Chrome Flash/Titarium plating
-            </p>
-      
-            </div>
-          </div>
-          <!--footer-->
-          <div class="flex items-center justify-end   rounded-b">
-            <button class="text-red-500 bg-transparent hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" v-on:click="toggleModal()">
-              Close
-            </button>
-            <button class="text-white border border-solid border-green-500 bg-green-500 hover:bg-green-800 active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" v-on:click="toggleModal()">
-              Send Us
-            </button>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <div v-if="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
- 
-     <!-- end Modal -->
+            <div v-if="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div> 
+            <!-- end Modal -->
 
       <vue-resizable class="overflow-hidden" v-bind:style="{ backgroundColor: color}" :dragSelector="dragSelector" :active="handlers"
         :fit-parent="fit" :max-width="maxW | checkEmpty" :max-height="maxH | checkEmpty" :min-width="minW | checkEmpty" :min-height="minH | checkEmpty"
         :width="width" :height="height" :left="left" :top="top" @mount="eHandler" @resize:move="eHandler"
         @resize:start="eHandler" @resize:end="eHandler" @drag:move="eHandler" @drag:start="eHandler" @drag:end="eHandler">
 
-          <div class="drag-container1-1">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-          </svg>
-          </div>
+           <div class="drag-container1-1">
+          </div> 
              
-        <!-- <div class="flex h-full flex-col items-center justify-center"> -->
           <draggable  class="w-full h-full" :list="list2" group="people" @change="log">
-              <tr  class="w-full flex flex-col items-center justify-center"  @click="controlshowcondition(index)" v-for="(element,index) in list2" :key="index">
-                <td class="p-5 text-sm">     
-                  <button v-if="element.showcondition"  class="float-right -m-4">X</button>
-                    <div class=" w-full ">
+              <VueDragResize v-for="(element,index) in list2" :key="index" 
+                            class=""
+                             :parentW="width" :parentH="height" :parentLimitation="true" 
+                             :isActive="false" :w="50" :h="50" :top="top1"
+                             
+                             v-on:resizing="resize" v-on:dragging="resize">
+                  <div class=" w-full ">
+                    <img class=""  :src="element.Pic"  alt=""/>
+                  </div>
+                </VueDragResize>
 
-                      <img class="w-12 h-12 "  :src="element.Pic"  alt=""/>
-                      
-                    </div>
-                </td>                
-              </tr>
+              <!-- <tr  class="w-full flex flex-col items-center justify-center" v-for="(element,index) in list2" :key="index">
+                    <td class="">      -->
+                      <!-- <button v-if="element.showcondition"  class="float-right -m-4">X</button> -->
+                        <!-- <div class=" w-full ">
+                          <img class="w-12 h-12 "  :src="element.Pic"  alt=""/>
+                        </div>
+                    </td>                
+              </tr> -->
           </draggable> 
-        <!-- </div> -->
       </vue-resizable>
   </div>
 
@@ -261,6 +264,7 @@ LOP : KVL271
 <script>
 import VueResizable from "vue-resizable";
 import draggable from "vuedraggable";
+import VueDragResize from 'vue-drag-resize';
 
 import Twitter from '../assets/twitter.png'
 import Facebook from '../assets/facebook.png'
@@ -275,7 +279,7 @@ export default {
   display: "Custom Clone",
   order: 3,
 
-components: { VueResizable, draggable,},
+components: { VueResizable, draggable, VueDragResize},
   data() {
     const tW = 250;
     const tH = 500;
@@ -284,7 +288,13 @@ components: { VueResizable, draggable,},
       showModal: false,
       showMenu: false,
       showcondition: true,
-
+      //for element 
+      width1: 0,
+      height1: 0,
+      top1: 50,
+      left1: 50,
+      
+      // for editor 
       handlers: ["r", "rb", "b", "lb", "l", "lt", "t", "rt"],
       left: `calc( 50% - ${tW / 2}px)`,
       top: `calc(50% - ${tH / 1.7}px)`,
@@ -298,7 +308,7 @@ components: { VueResizable, draggable,},
       event: "",
       dragSelector: ".drag-container1-1",
           list1: [
-        { name: "Ttr", id: 1, sp : false, Pic : Twitter, 
+        { name: "Ttr", id: 1, sp : false, Pic : Twitter, active : true,
           sublist : [
             {name: "Ttr 1", id: 1, Pic : Twitter,},
             {name: "Ttr 2", id: 2, Pic : Twitter,},
@@ -307,7 +317,7 @@ components: { VueResizable, draggable,},
             {name: "Ttr 5", id: 5, Pic : Twitter,}
             ]
          },
-        { name: "LinkedIn", id: 2, sp : false, Pic : LinkedIn, 
+        { name: "LinkedIn", id: 2, sp : false, Pic : LinkedIn,active : true,
         sublist : [
             {name: "LIn 1", id: 1, Pic : LinkedIn,},
             {name: "LIn 2", id: 2, Pic : LinkedIn,},
@@ -316,7 +326,7 @@ components: { VueResizable, draggable,},
             {name: "LIn 5", id: 5, Pic : LinkedIn,}
             ]
         },
-        { name: "Fb", id: 3, sp : false, Pic : Facebook, 
+        { name: "Fb", id: 3, sp : false, Pic : Facebook,active : true,
                 sublist : [
             {name: "Fb 1", id: 1, Pic : Facebook,},
             {name: "Fb 2", id: 2, Pic : Facebook,},
@@ -329,14 +339,14 @@ components: { VueResizable, draggable,},
             {name: "Fb 5", id: 9, Pic : Facebook,}
             ]
         },
-        { name: "GHub", id: 4, sp : false, Pic : GitHub, 
+        { name: "GHub", id: 4, sp : false, Pic : GitHub,active : true,
                 sublist : [
             {name: "GHub 1", id: 1, Pic : GitHub,},
             {name: "GHub 2", id: 2, Pic : GitHub,},
             ]
         
         },
-        { name: "Sl ", id: 5, sp : false, Pic : SL, 
+        { name: "Sl ", id: 5, sp : false, Pic : SL, active : true,
                 sublist : [
             {name: "SL 1", id: 1, Pic : SL,},
             {name: "SL 2", id: 2, Pic : SL,},
@@ -360,6 +370,19 @@ components: { VueResizable, draggable,},
     }
   },
   methods: {
+
+        resize(newRect) {
+          this.width1 = newRect.width;
+          this.height1 = newRect.height;
+          this.top1 = newRect.top;
+          this.left1 = newRect.left;
+        },
+
+        onActivated(index){
+          // this.active = !this.active;
+          this.list2[index].active = !this.list2[index].active 
+          console.log(index);
+        },
      toggleModal: function(){
       this.showModal = !this.showModal;
     },
@@ -480,13 +503,13 @@ overflow: hidden;
   width: 50px;
 }
 
-.drag-container1-1,
-.drag-container1-2 {
-  width: 10%;
+.drag-container1-1 {
+  width: 100%;
   /* margin-top: -22px; */
-  height: 20px;
-  padding: 2px;
+  height: 12px;
+  /* padding: 2px; */
   color: white;
+  /* background-color: #333333; */
   text-align: center;
   cursor:move;
 }
