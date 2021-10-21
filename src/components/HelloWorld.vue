@@ -236,10 +236,9 @@
              
           <draggable  class="w-full h-full" :list="list2" group="people" @change="log">
               <VueDragResize v-for="(element,index) in list2" :key="index" 
-                            class=""
+                            class="" :isDraggable="true" :x="50" :y="100" :isResizable="false"
                              :parentW="width" :parentH="height" :parentLimitation="true" 
-                             :isActive="false" :w="50" :h="50" :top="top1"
-                             
+                             :isActive="false" :w="width1" :h="height1" :top="top1"
                              v-on:resizing="resize" v-on:dragging="resize">
                   <div class=" w-full ">
                     <img class=""  :src="element.Pic"  alt=""/>
@@ -289,8 +288,8 @@ components: { VueResizable, draggable, VueDragResize},
       showMenu: false,
       showcondition: true,
       //for element 
-      width1: 0,
-      height1: 0,
+      width1: 50,
+      height1: 50,
       top1: 50,
       left1: 50,
       
