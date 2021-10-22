@@ -150,16 +150,15 @@
             </svg>
           </button>
             <!-- Modal -->
-            <div v-if="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
-              <div class="relative w-auto my-6 mx-auto">
+            <div v-if="showModal" class="border-0 rounded-lg overflow-scroll fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+              <div class="relative w-auto mx-auto ">
                 <!--content-->
-                <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
-                  <!--header-->
+                <div class="border-0 mt-10 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                   <!--body-->
-                  <div class="p-4 flex">
+                  <div class="p-6 flex">
                     
-                    <div class="w-2/3 mx-4 " >
-                      <vue-resizable class="overflow-hidden" v-bind:style="{ backgroundColor: color}" :dragSelector="dragSelector" :active="[]"
+                    <div class=" mx-2 " >
+                      <vue-resizable class=" rounded-lg" v-bind:style="{ backgroundColor: color}" :dragSelector="dragSelector" :active="[]"
                         :width="width" :height="height" >
                         <VueDragResize v-for="(element,index) in list2" :key="index" 
                              class="" :isDraggable="true" :x="element.left" :y="element.top"
@@ -175,7 +174,7 @@
                    </vue-resizable>                   
                </div>
 
-                    <div class="w-1/3">
+                    <div class="mx-2">
                     <h2 class="text-xl font-bold">KCG/KXG/KZG351</h2>
                     <p class="text-xl text-red-500">Note: this data will be dynamic after you provide name and other information</p>
                     <h4 class="text-lg pt-4">Features </h4>
@@ -184,18 +183,18 @@
                     </p>
                     
                     <h4 class="text-lg pt-4">Measurement</h4>
-        <pre class="text-md">
-        COP: 1000 * 190 * 20 (2-8)
-        LOP: 310 * 100 * 20
-        Hall Call : 200 * 100 * 20
-        </pre>
+<pre class="text-md">
+COP: 1000 * 190 * 20 (2-8)
+LOP: 310 * 100 * 20
+Hall Call : 200 * 100 * 20
+</pre>
 
                     <h4 class="text-lg pt-4">Display Module</h4>
-        <pre class="text-md">
-        COP : KVL272
-        LOP : KVL271
-        </pre>
-              
+<pre class="text-md">
+COP : KVL272
+LOP : KVL271
+</pre>
+    
                     <h4 class="text-lg pt-4">Button</h4>
                     <p class="text-md">
                       BA541
@@ -209,7 +208,7 @@
                     </div>
                   </div>
                   <!--footer-->
-                  <div class="flex items-center justify-end   rounded-b">
+                  <div class="flex items-center justify-end ">
                     <button class="text-red-500 bg-transparent hover:bg-red-500 hover:text-white active:bg-red-600 font-bold uppercase text-sm px-6 py-3 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" v-on:click="toggleModal()">
                       Close
                     </button>
