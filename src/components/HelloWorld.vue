@@ -151,33 +151,31 @@
           </button>
             <!-- Modal -->
             <div v-if="showModal" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
-              <div class="relative w-auto my-6 mx-auto max-w-6xl">
+              <div class="relative w-auto my-6 mx-auto">
                 <!--content-->
                 <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                   <!--header-->
                   <!--body-->
-                  <div class="relative p-6 flex">
+                  <div class="p-4 flex">
                     
-                    <div class="w-1/2 px-4 ">
-                      <div class="" :style="{'background-color': color, 'width':width+'px', 'height':height+'px'}">
-                      <div class="flex flex-col items-center justify-center">
-                  <draggable  class="w-full" :list="list2" group="people" @change="log">
-                      <tr  class="w-full flex flex-col items-center justify-center"  @click="controlshowcondition(index)" v-for="(element,index) in list2" :key="index">
-                        <td class="p-5 text-sm">     
-                          <button v-if="element.showcondition"  class="float-right -m-4">X</button>
-                            <div class=" w-full h-full">
+                    <div class="w-2/3 mx-4 " >
+                      <vue-resizable class="overflow-hidden" v-bind:style="{ backgroundColor: color}" :dragSelector="dragSelector" :active="[]"
+                        :width="width" :height="height" >
+                        <VueDragResize v-for="(element,index) in list2" :key="index" 
+                             class="" :isDraggable="true" :x="element.left" :y="element.top"
+                             :parentW="width" :parentH="height" :parentLimitation="true" 
+                              @dragstop="onDragstop(index)"
+                             :isActive="false" @clicked="onActivated(index, element.active)" 
+                             :w="element.width" :h="element.height" 
+                             v-on:resizing="resize" v-on:dragging="resize">
+                  <div class=" w-full ">
+                    <img class=""  :src="element.Pic"  alt=""/>
+                  </div>
+                </VueDragResize>
+                   </vue-resizable>                   
+               </div>
 
-                              <img class="w-12 h-12 "  :src="element.Pic"  alt=""/>
-                              
-                            </div>
-                        </td>                
-                      </tr>
-                  </draggable> 
-                      </div> 
-                        </div>
-                    </div>
-
-                    <div class="w-1/2">
+                    <div class="w-1/3">
                     <h2 class="text-xl font-bold">KCG/KXG/KZG351</h2>
                     <p class="text-xl text-red-500">Note: this data will be dynamic after you provide name and other information</p>
                     <h4 class="text-lg pt-4">Features </h4>
@@ -236,23 +234,16 @@
              
           <draggable  class="w-full h-full" :list="list2" group="people" @change="log">
               <VueDragResize v-for="(element,index) in list2" :key="index" 
-                            class="" :isDraggable="true" :x="50" :y="100" :isResizable="false"
+                             class="" :isDraggable="true" :x="element.left" :y="element.top"
                              :parentW="width" :parentH="height" :parentLimitation="true" 
-                             :isActive="false" :w="width1" :h="height1" :top="top1"
+                              @dragstop="onDragstop(index)"
+                             :isActive="element.active ? true : false" @clicked="onActivated(index, element.active)" 
+                             :w="element.width" :h="element.height" 
                              v-on:resizing="resize" v-on:dragging="resize">
                   <div class=" w-full ">
                     <img class=""  :src="element.Pic"  alt=""/>
                   </div>
                 </VueDragResize>
-
-              <!-- <tr  class="w-full flex flex-col items-center justify-center" v-for="(element,index) in list2" :key="index">
-                    <td class="">      -->
-                      <!-- <button v-if="element.showcondition"  class="float-right -m-4">X</button> -->
-                        <!-- <div class=" w-full ">
-                          <img class="w-12 h-12 "  :src="element.Pic"  alt=""/>
-                        </div>
-                    </td>                
-              </tr> -->
           </draggable> 
       </vue-resizable>
   </div>
@@ -307,55 +298,55 @@ components: { VueResizable, draggable, VueDragResize},
       event: "",
       dragSelector: ".drag-container1-1",
           list1: [
-        { name: "Ttr", id: 1, sp : false, Pic : Twitter, active : true,
+        { name: "Ttr", id: 1, sp : false, Pic : Twitter, 
           sublist : [
-            {name: "Ttr 1", id: 1, Pic : Twitter,},
-            {name: "Ttr 2", id: 2, Pic : Twitter,},
-            {name: "Ttr 3", id: 3, Pic : Twitter,},
-            {name: "Ttr 4", id: 4, Pic : Twitter,},
-            {name: "Ttr 5", id: 5, Pic : Twitter,}
+            {name: "Ttr 1", id: 1, Pic : Twitter, active : true, top : 50, left : 50, width : 100, height : 100,},
+            {name: "Ttr 2", id: 2, Pic : Twitter, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "Ttr 3", id: 3, Pic : Twitter, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "Ttr 4", id: 4, Pic : Twitter, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "Ttr 5", id: 5, Pic : Twitter, active : true, top : 50, left : 50, width : 50, height : 50,}
             ]
          },
-        { name: "LinkedIn", id: 2, sp : false, Pic : LinkedIn,active : true,
+        { name: "LinkedIn", id: 2, sp : false, Pic : LinkedIn,
         sublist : [
-            {name: "LIn 1", id: 1, Pic : LinkedIn,},
-            {name: "LIn 2", id: 2, Pic : LinkedIn,},
-            {name: "LIn 3", id: 3, Pic : LinkedIn,},
-            {name: "LIn 4", id: 4, Pic : LinkedIn,},
-            {name: "LIn 5", id: 5, Pic : LinkedIn,}
+            {name: "LIn 1", id: 1, Pic : LinkedIn, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "LIn 2", id: 2, Pic : LinkedIn, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "LIn 3", id: 3, Pic : LinkedIn, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "LIn 4", id: 4, Pic : LinkedIn, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "LIn 5", id: 5, Pic : LinkedIn, active : true, top : 50, left : 50, width : 50, height : 50,}
             ]
         },
-        { name: "Fb", id: 3, sp : false, Pic : Facebook,active : true,
+        { name: "Fb", id: 3, sp : false, Pic : Facebook,
                 sublist : [
-            {name: "Fb 1", id: 1, Pic : Facebook,},
-            {name: "Fb 2", id: 2, Pic : Facebook,},
-            {name: "Fb 3", id: 3, Pic : Facebook,},
-            {name: "Fb 2", id: 4, Pic : Facebook,},
-            {name: "Fb 3", id: 5, Pic : Facebook,},
-            {name: "Fb 2", id: 6, Pic : Facebook,},
-            {name: "Fb 3", id: 7, Pic : Facebook,},
-            {name: "Fb 4", id: 8, Pic : Facebook,},
-            {name: "Fb 5", id: 9, Pic : Facebook,}
+            {name: "Fb 1", id: 1, Pic : Facebook, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "Fb 2", id: 2, Pic : Facebook, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "Fb 3", id: 3, Pic : Facebook, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "Fb 2", id: 4, Pic : Facebook, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "Fb 3", id: 5, Pic : Facebook, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "Fb 2", id: 6, Pic : Facebook, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "Fb 3", id: 7, Pic : Facebook, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "Fb 4", id: 8, Pic : Facebook, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "Fb 5", id: 9, Pic : Facebook, active : true, top : 50, left : 50, width : 50, height : 50,}
             ]
         },
-        { name: "GHub", id: 4, sp : false, Pic : GitHub,active : true,
+        { name: "GHub", id: 4, sp : false, Pic : GitHub,
                 sublist : [
-            {name: "GHub 1", id: 1, Pic : GitHub,},
-            {name: "GHub 2", id: 2, Pic : GitHub,},
+            {name: "GHub 1", id: 1, Pic : GitHub, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "GHub 2", id: 2, Pic : GitHub, active : true, top : 50, left : 50, width : 50, height : 50,},
             ]
         
         },
-        { name: "Sl ", id: 5, sp : false, Pic : SL, active : true,
+        { name: "Sl ", id: 5, sp : false, Pic : SL, 
                 sublist : [
-            {name: "SL 1", id: 1, Pic : SL,},
-            {name: "SL 2", id: 2, Pic : SL,},
-            {name: "SL 3", id: 3, Pic : SL,},
-            {name: "SL 2", id: 4, Pic : SL,},
-            {name: "SL 3", id: 5, Pic : SL,},
-            {name: "SL 2", id: 6, Pic : SL,},
-            {name: "SL 3", id: 7, Pic : SL,},
-            {name: "SL 4", id: 8, Pic : SL,},
-            {name: "SL 5", id: 9, Pic : SL,}
+            {name: "SL 1", id: 1, Pic : SL, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "SL 2", id: 2, Pic : SL, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "SL 3", id: 3, Pic : SL, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "SL 2", id: 4, Pic : SL, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "SL 3", id: 5, Pic : SL, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "SL 2", id: 6, Pic : SL, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "SL 3", id: 7, Pic : SL, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "SL 4", id: 8, Pic : SL, active : true, top : 50, left : 50, width : 50, height : 50,},
+            {name: "SL 5", id: 9, Pic : SL, active : true, top : 50, left : 50, width : 50, height : 50,}
             ]
         
         },
@@ -376,17 +367,31 @@ components: { VueResizable, draggable, VueDragResize},
           this.top1 = newRect.top;
           this.left1 = newRect.left;
         },
-
-        onActivated(index){
-          // this.active = !this.active;
-          this.list2[index].active = !this.list2[index].active 
-          console.log(index);
+        onDragstop(index) {
+          this.list2[index].width = this.width1 
+          this.list2[index].height = this.height1 
+          this.list2[index].top = this.top1 
+          this.list2[index].left = this.left1
+         console.log('hello',this.list2[index].top)
         },
-     toggleModal: function(){
-      this.showModal = !this.showModal;
-    },
+          
+        onActivated(index){
+          for(var i=0; i<this.list2.length; i++){
+           this.list2[i].active = false  
+          } 
+          this.list2[index].active = !this.list2[index].active 
+          this.list2[index].width = this.width1 
+          this.list2[index].height = this.height1 
+          this.list2[index].top = this.top1 
+          this.list2[index].left = this.left1
+          // console.log(this.top1);
+        },
+
+      toggleModal: function(){
+        this.showModal = !this.showModal;
+      },
       controlshowcondition(id){
-          console.log(id)
+          // console.log(id)
         this.list2[id].showcondition = !this.list2[id].showcondition;
       },
       toggleShow(id) {
@@ -405,7 +410,7 @@ components: { VueResizable, draggable, VueDragResize},
     },
         log(evt) {
       window.console.log(evt);
-      console.log('list 2 is ', this.list2)
+      // console.log('list 2 is ', this.list2)
     },
   },
 
