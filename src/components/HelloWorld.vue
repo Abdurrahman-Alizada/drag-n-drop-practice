@@ -156,7 +156,6 @@
                 <div class="border-0 mt-10 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                   <!--body-->
                   <div class="p-6 flex">
-                    
                     <div class=" mx-2 " >
                       <vue-resizable class=" rounded-lg" v-bind:style="{ backgroundColor: color}" :dragSelector="dragSelector" :active="[]"
                         :width="width" :height="height" >
@@ -371,7 +370,6 @@ components: { VueResizable, draggable, VueDragResize},
           this.list2[index].height = this.height1 
           this.list2[index].top = this.top1 
           this.list2[index].left = this.left1
-         console.log('hello',this.list2[index].top)
         },
           
         onActivated(index){
@@ -385,8 +383,7 @@ components: { VueResizable, draggable, VueDragResize},
           this.list2[index].left = this.left1
           // console.log(this.top1);
         },
-
-      toggleModal: function(){
+        toggleModal: function(){
         this.showModal = !this.showModal;
       },
       controlshowcondition(id){
