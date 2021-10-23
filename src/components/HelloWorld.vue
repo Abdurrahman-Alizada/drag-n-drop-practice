@@ -232,7 +232,8 @@ LOP : KVL271
              
           <draggable  class="w-full h-full" :list="list2" group="people" @change="log">
               <VueDragResize v-for="(element,index) in list2" :key="index" 
-                             class="" :isDraggable="true" :x="element.left" :y="element.top"
+                             class="" :isDraggable="true" :isResizable="false"
+                              :x="element.left" :y="element.top"
                              :parentW="width" :parentH="height" :parentLimitation="true" 
                               @dragstop="onDragstop(index)"
                              :isActive="element.active ? true : false" @clicked="onActivated(index, element.active)" 
