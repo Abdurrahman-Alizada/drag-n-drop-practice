@@ -405,11 +405,18 @@ components: { VueResizable, draggable, VueDragResize},
       this.top = data.top;
       this.event = data.eventName;
     },
-        log(evt) {
-      window.console.log(evt);
-      // console.log('list 2 is ', this.list2)
+        log() {
+      // window.console.log(evt);
+    this.checkDuplicate()
+      // console.log()
     },
-  },
+
+    checkDuplicate() {
+      let arr = this.list2
+      console.log(arr);
+      this.list2 = arr.filter((v,i,a)=>a.findIndex(t=>(t.name===v.name))===i)
+}
+},
 
     computed: {
     class() {
