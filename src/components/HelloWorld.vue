@@ -21,12 +21,12 @@
                             <span class="mx-4 text-lg">{{element.name}}</span>
           </div>
     
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" :class="{'rotate-90' : showMenu && element.sp}" class="dropdown-menu" viewBox="0 0 24 24">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" :class="{'rotate-90' :  element.sp}" class="dropdown-menu" viewBox="0 0 24 24">
         <path fill="none" d="M0 0h24v24H0V0z"/><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
       </svg>
    
     </div>
-    <ul class=" overflow-hidden dropdown-menu font-normal" :class="showMenu && element.sp ? 'h-auto' : 'h-0'">
+    <ul class=" overflow-hidden dropdown-menu font-normal" :class=" element.sp ? 'h-auto' : 'h-0'">
       <draggable
         class="flex flex-wrap items-center justify-between"
         :list="element.sublist"
@@ -49,8 +49,6 @@
                       
                       </div>
                     </td>
-                
-
         </li>
       </draggable>
       </ul>
@@ -392,11 +390,12 @@ components: { VueResizable, draggable, VueDragResize},
         this.list2[id].showcondition = !this.list2[id].showcondition;
       },
       toggleShow(id) {
-           for(var i=0; i<5; i++){
-             this.list1[i].sp = false
-           }
-          this.showMenu = !this.showMenu;
+          //  for(var i=0; i<5; i++){
+          //    this.list1[i].sp = false
+          //  }
+          // this.showMenu = !this.showMenu;
           this.list1[id].sp = !this.list1[id].sp;
+         console.log(id)
     },
     eHandler(data) {
       this.width = data.width;
@@ -405,15 +404,14 @@ components: { VueResizable, draggable, VueDragResize},
       this.top = data.top;
       this.event = data.eventName;
     },
-        log() {
-      // window.console.log(evt);
+        log(evt) {
+      window.console.log(evt);
     this.checkDuplicate()
-      // console.log()
     },
 
     checkDuplicate() {
       let arr = this.list2
-      console.log(arr);
+      // console.log(arr);
       this.list2 = arr.filter((v,i,a)=>a.findIndex(t=>(t.name===v.name))===i)
 }
 },
